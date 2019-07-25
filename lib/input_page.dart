@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/input_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-//got to about 4 minutes in Creating Custom  Flutter Widgets
+import 'icon_content.dart';
+import 'reusable_card.dart';
 
 const bottomContainerHeight = 80.0;
 const activeCardColour = Color(0xFF1D1E33);
@@ -28,25 +29,43 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour,),
+                  child: ReusableCard(
+                      colour: activeCardColour,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      )
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour,),
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
+                    )
+                  ),
                 )
               ],
             ),
           ),
           Expanded(
-            child: ReusableCard(colour: activeCardColour,),
+            child: ReusableCard(
+              colour: activeCardColour,
+            ),
           ),
           Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour,),
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour,),
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                  ),
                 )
               ],
             ),
@@ -62,90 +81,3 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
-
-class ReusableCard extends StatelessWidget {
-
-  ReusableCard({@required this.colour, this.cardChild});
-
-  final Color colour;
-  final Widget cardChild;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: cardChild,
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: colour,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      //Paused at 5:50 in How to refactor flutter widgets
-    );
-  }
-}
-
-
-
-
-//mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//children: <Widget> [
-//Row(
-//mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//mainAxisSize: MainAxisSize.max,
-//crossAxisAlignment: CrossAxisAlignment.center,
-//children: <Widget>[
-//Expanded(
-//child: Container(
-//child: Text("Box 1"),
-//margin: EdgeInsets.all(15.0),
-//decoration: BoxDecoration(
-//color: Color(0xFF1D1E33),
-//borderRadius: BorderRadius.circular(10.0),
-//),
-//),
-//),
-//Expanded(
-//child: Container(
-//child: Text("Box 2"),
-//margin: EdgeInsets.all(15.0),
-//decoration: BoxDecoration(
-//color: Color(0xFF1D1E33),
-//borderRadius: BorderRadius.circular(10.0),
-//),
-//),
-//),
-//],
-//),
-//Container(
-//child: Text("Box A"),
-//margin: EdgeInsets.all(15.0),
-//decoration: BoxDecoration(
-//color: Color(0xFF1D1E33),
-//borderRadius: BorderRadius.circular(10.0),
-//),
-//),
-//Row(
-//children: <Widget>[
-//Expanded(
-//child: Container(
-//child: Text("Box 1"),
-//margin: EdgeInsets.all(15.0),
-//decoration: BoxDecoration(
-//color: Color(0xFF1D1E33),
-//borderRadius: BorderRadius.circular(10.0),
-//),
-//),
-//),
-//Expanded(
-//child: Container(
-//child: Text("Box 2"),
-//margin: EdgeInsets.all(15.0),
-//decoration: BoxDecoration(
-//color: Color(0xFF1D1E33),
-//borderRadius: BorderRadius.circular(10.0),
-//),
-//),
-//),
-//],
-//),
-//],
